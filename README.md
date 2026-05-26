@@ -1,4 +1,7 @@
 # UART Transceiver in SystemVerilog
+![SystemVerilog](https://img.shields.io/badge/Language-SystemVerilog-blue.svg)
+![EDA](https://img.shields.io/badge/Tool-Xilinx_Vivado-orange.svg)
+![Status](https://img.shields.io/badge/Status-Simulation_Verified-success.svg)
 
  Fully functional UART Transceiver with transmission and reception capabilities built from scratch in SystemVerilog.
 
@@ -34,6 +37,8 @@ The transmitter uses a modular structural datapath design, built by instantiatin
 * **Baud Rate Counter (`Counter_baud_rate`)**: Timer that dictates the timing length of each serial bit sequence.
 * **Bit Counter (`counter_bit_select`)**: Tracks the transmission progress from bit 0 to bit 10.
 * **Control Logic (`toggle_ff`, `equalityverif`)**: Manages the start sequence and ensures transmission completes after 11 bits.
+<img width="2061" height="591" alt="image" src="https://github.com/user-attachments/assets/febfd22f-a5bd-465c-bcc5-00b0da6d29d3" />
+
 
 ### 2. Receiver (`Receive.sv`)
 The receiver is implemented using a classic Finite State Machine (FSM) utilizing oversampling logic to maximize data integrity.
@@ -42,6 +47,8 @@ The receiver is implemented using a classic Finite State Machine (FSM) utilizing
 * `data`: Iterates through and samples the 8 data bits at the exact center of their respective clock periods into a shift register.
 * `parity`: Reads the parity bit.
 * `stop`: Verifies the presence of the Stop bit (1) and asserts the `valid` signal to the system, outputting the unpacked byte to `data_out`.
+<img width="2164" height="527" alt="image" src="https://github.com/user-attachments/assets/7fc97b84-ffc8-4ec3-adfb-d38b3f662f4c" />
+
 
 ---
 
