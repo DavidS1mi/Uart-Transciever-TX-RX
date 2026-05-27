@@ -21,10 +21,16 @@ module tb_transceiver();
         .valid(valid)
     );
 
-    always #5 clk = ~clk;
+   initial
+        begin
+	    clk = 0;
+	forever
+		    begin
+		#5 clk = ~clk;
+		    end
+    end
 
     initial begin
-        clk = 0;
         rst = 1;
         start = 0;
         data_in = 8'h00;
